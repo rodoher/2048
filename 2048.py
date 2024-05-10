@@ -87,7 +87,6 @@ class Game2048:
                 else:
                     val = 1
             arr = np.delete(arr, np.where(arr == 0))
-            print(arr)
             missing_zeros = self.n_rows - len(arr)
             for i in range(missing_zeros):
                 arr = np.append(arr, 0)
@@ -120,7 +119,6 @@ class Game2048:
                         arr[nums[i]] = 0
 
             arr = np.delete(arr, np.where(arr == 0))
-            print(arr)
             missing_zeros = self.n_rows - len(arr)
             for i in range(missing_zeros):
                 arr = np.insert(arr, 0, 0)
@@ -143,7 +141,6 @@ class Game2048:
                 else:
                     val = 1
             arr = np.delete(arr, np.where(arr == 0))
-            print(arr)
             missing_zeros = self.n_rows - len(arr)
             for i in range(missing_zeros):
                 arr = np.append(arr, 0)
@@ -155,7 +152,6 @@ class Game2048:
 
     def down_key(self, event):
         self.c_boxes = self.c_boxes.reshape(self.n_rows, self.n_rows).T
-        print(self.c_boxes)
         for a in range(len(self.c_boxes)):
             arr = self.c_boxes[a]
             nums = np.argwhere(arr != 0)
@@ -167,7 +163,6 @@ class Game2048:
                         arr[nums[i]] = 0
 
             arr = np.delete(arr, np.where(arr == 0))
-            print(arr)
             missing_zeros = self.n_rows - len(arr)
             for i in range(missing_zeros):
                 arr = np.insert(arr, 0, 0)
@@ -180,7 +175,6 @@ class Game2048:
     def check_lost(self):
         zeros_available = np.argwhere(self.c_boxes == 0).reshape(-1)
         if len(zeros_available) == 0:
-            print("game over")
             self.game_over()
             return True
         return False
